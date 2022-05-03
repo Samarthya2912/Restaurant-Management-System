@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= datta.name %></title>
+</head>
+
+<body>
+    <u>
+        <h3>Details</h3>
+    </u>
+    Name : <%= datta.name %> <br>
+    Email : <%= datta.email %> <br>
+    Address : <%= datta.address %> <br>
+    Phone : <%= datta.phone %> <br> <br>
+    <button><a href="/api/reservationPage/<%= datta.user_id %>">Reserve Table</a></button><br> <br>
+    <button><a href="/api/orders/homemenu/<%= datta.user_id %>">Make Order</a></button><br> <br>
+</body>
+
+</html>

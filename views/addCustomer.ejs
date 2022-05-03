@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        input[type=text],
+        input[type=password],
+        input[type=reset],
+        input[type=submit],
+        select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+    </style>
+    <title> Customer Signup</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Customer Signup</h2>
+            <form action="/api/signup/customer" method="POST">
+
+                Name &nbsp; &nbsp;<input type="text" class="form-control" name="name" required> <br> <br>
+
+                Address &nbsp; &nbsp;<input type="text" name="address" required><br> <br>
+                Email &nbsp; &nbsp;<input type="text" name="email" required> <br> <br>
+                Phone &nbsp; &nbsp;<input type="text" name="phone" required> <br> <br>
+
+                Username &nbsp; &nbsp;<input type="text" name="username" required> <br> <br>
+                Password &nbsp; &nbsp; <input type="password" name="password" required> <br> <br>
+
+                <input type="submit" value="Add Customer"> <br> <br>
+
+                <input type="Reset">
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

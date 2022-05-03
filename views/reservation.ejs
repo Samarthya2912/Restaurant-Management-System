@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        input[type=button],
+        input[type=number],
+        input[type=reset],
+        input[type=submit],
+        select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+    </style>
+    <title>Reservation</title>
+</head>
+
+<body>
+
+
+    <div class="login-box">
+        <u>
+            <h2>Reserve Table</h2>
+        </u>
+        <form action="/api/reservation/<%=id.the_id%>" method="POST">
+
+            No. of people&nbsp; &nbsp;<input type="number" class="form-control" name=" no_of_person" required> <br> <br>
+
+            Date &nbsp; &nbsp;<input type="date" name="reserved_for_date" required><br> <br>
+            Time &nbsp; &nbsp;<input type="time" name="reserved_for_time" required> <br> <br>
+
+            <input type="submit" value="Add Reservation"> <br> <br>
+
+            <input type="Reset">
+        </form>
+        <form>
+            <input type="button" value="Go back!" onclick="history.back()">
+        </form>
+    </div>
+
+</body>
+
+</html>

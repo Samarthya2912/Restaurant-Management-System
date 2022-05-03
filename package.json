@@ -1,0 +1,41 @@
+{ 
+  "name": "restaurant-dbms",
+  "version": "1.0.0",
+  "description": "Restaurant Database Management System Project done for 4th semester.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saileshbro/restaurant-dbms.git"
+  },
+  "keywords": [
+    "DBMS",
+    "node",
+    "mysql"
+  ],
+  "author": "Sailesh Dahal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saileshbro/restaurant-dbms/issues"
+  },
+  "homepage": "https://github.com/saileshbro/restaurant-dbms#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.18.0",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "util": "^0.12.4",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "nodemon": "^2.0.15"
+  }
+}

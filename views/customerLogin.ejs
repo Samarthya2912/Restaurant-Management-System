@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        input[type=text],
+        input[type=password],
+        input[type=reset],
+        input[type=submit],
+        select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-box {
+            text-align: center;
+        }
+    </style>
+    <title>Customer Login</title>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Customer Login</h2>
+        <form action="/api/login/user" method="POST">
+            <span>Username</span>&nbsp; &nbsp;<input type="text" name="username"> <br> <br>
+            <span>Password</span> &nbsp; &nbsp;<input type="password" name="password"><br> <br>
+            <input type="submit" value="Login">
+
+        </form>
+    </div>
+</body>
+
+</html>

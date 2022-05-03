@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        h1 {
+            text-align: center;
+            margin: 10px 10px 20px 10px;
+            color: rgb(17, 15, 15);
+            font-family: Cursive;
+        }
+
+        .order-box {
+            margin: 32px 18px;
+            padding: 5px 13px;
+            border: 3px solid black;
+            border-radius: 15px;
+        }
+
+        div>p {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+        }
+
+        div>h6 {
+            padding-left: 20px;
+        }
+
+        .order-box>hr {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .tick {
+            text-align: center;
+        }
+
+        .order-box:nth-child(5n+1) {
+            background-color: rgb(248, 217, 238);
+        }
+
+        .order-box:nth-child(5n+2) {
+            background-color: rgb(248, 228, 217);
+        }
+
+        .order-box:nth-child(5n+3) {
+            background-color: rgb(219, 217, 248);
+        }
+
+        .order-box:nth-child(5n+4) {
+            background-color: rgb(217, 248, 230);
+        }
+
+        .order-box:nth-child(5n+5) {
+            background-color: rgb(237, 248, 217);
+        }
+
+        .boxy {
+            margin: 0 20px;
+            padding: 1px 15px;
+            background-color: rgb(255, 255, 251);
+            border: 2px solid black;
+            border-radius: 13px;
+
+        }
+
+        input[type=button],
+        input[type=number],
+        input[type=reset],
+        input[type=submit],
+        select {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+    <title>Home Order Page</title>
+</head>
+
+<body style="background-color: rgb(240, 255, 254)">
+    <h1><u>Make Orders:</u></h1>
+    <form onsubmit="order(); return false;">
+        <h4>Breakfast Menu</h4>
+        <div class="boxy">
+            <div class="order-box">
+                <h4 align='center'>Breakfast Menu</h4>
+                <div class="row">
+                    <div class="col-9">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <h6>Menu</h6>
+                            </div>
+                            <div class="col-2">
+                                <span>Select</span>
+                            </div>
+                            <div class="col-2">
+                                <h6>Price</h6>
+                            </div>
+
+                        </div>
+                        <hr>
+
+                        <%for(var i=0; i < data.food.length; i++){%>
+
+                        <div class="row justify-content-between food-items">
+                            <div class="col-8">
+                                <h6 id="itemName"> <%=data.food[i].food_item_name%></h6>
+                            </div>
+                            <div class="col-2">
+                                <span>
+                                    <i class="fa fa-plus-circle"
+                                        onclick="addProduct('<%=data.food[i].food_item_name%>')"
+                                        style="color:rgba(35, 200, 38, 0.849)"></i>
+
+                                    &nbsp;
+                                    <span class="itemCount"
+                                        id="food-item-<%=data.food[i].food_item_name%>"><%=data.food[i].food_item_count%></span>
+                                    &nbsp;
+                                    <i class="fa fa-minus-circle"
+                                        onclick="removeProduct('<%=data.food[i].food_item_name%>')"
+                                        style="color:chocolate"></i>
+                                </span>
+                            </div>
+                            <div class="col-2">
+                                <h6 id="itemPrice"> <%=data.food[i].food_item_price%></h6>
+                            </div>
+                        </div>
+
+                        <%}%>
+    
+                    </div>
+    
+                </div>
+                <hr>
+            </div>
+
+        </div>
+
+
+        <input type="submit" value="Order Food"> <br> <br>
+
+        <input type="Reset"> <br>
+    </form>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+    </form>
+
+    <script>
+        function addProduct(foodItemName) {
+            document.getElementById('food-item-' + foodItemName).innerHTML = parseInt(document.getElementById('food-item-' + foodItemName).innerHTML) + 1;
+        }
+
+        function removeProduct(foodItemName) {
+            if (parseInt(document.getElementById('food-item-' + foodItemName).innerHTML) > 0) {
+                document.getElementById('food-item-' + foodItemName).innerHTML = parseInt(document.getElementById('food-item-' + foodItemName).innerHTML) - 1;
+            }
+        }
+
+        function order() {
+            var foodItems = document.getElementsByClassName('food-items');
+            var list = [];
+            for (let i = 0; i < foodItems.length; i++) {
+                let dat = {
+                    name: foodItems[i].querySelector("#itemName").innerText,
+                    count: foodItems[i].querySelector(".itemCount").innerText
+                }
+                list.push(dat);
+            }
+            list = list.filter(ele => ele.count != 0);
+            console.log(list);
+            $.ajax({
+                method: 'POST',
+                url: "http://localhost:8000/api/orders/homeDelivery/<%= data.id.the_id %>",
+                data: {
+                    order_items: list
+                },
+                success: (data) => {
+                    console.log(data);
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
